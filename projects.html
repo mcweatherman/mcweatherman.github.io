@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects – Miles Weatherman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: "Roboto", sans-serif;
+            overflow: hidden;
+        }
+
+        /* Navigation bar */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            z-index: 100;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 6px 12px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-item.active a {
+            background-color: white;
+            color: black;
+        }
+
+        main {
+            height: 100vh;
+            width: 100%;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scrollbar-width: none;
+        }
+
+            main::-webkit-scrollbar {
+                display: none;
+            }
+
+        .project-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform 0.8s ease;
+        }
+
+        .project-section:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            background-color: white;
+            color: black;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .project-section:hover .project-title {
+            background-color: black;
+            color: white;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            width: 24px;
+            height: 24px;
+            border-left: 4px solid white;
+            border-bottom: 4px solid white;
+            animation: bounce 1.6s infinite;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translate(-50%, 0) rotate(-45deg);
+            }
+
+            40% {
+                transform: translate(-50%, 8px) rotate(-45deg);
+            }
+
+            60% {
+                transform: translate(-50%, 4px) rotate(-45deg);
+            }
+        }
+
+        .scrollbar-nav {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            bottom: 20px;
+            width: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 200;
+        }
+
+        .scrollbar-item {
+            flex: 1;
+            background-color: white;
+            border: none;
+            margin: 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .scrollbar-item.active {
+                background-color: black;
+            }
+
+        @media (max-width: 600px) {
+            .project-title {
+                font-size: 1.3rem;
+                bottom: 25px;
+                left: 25px;
+                padding: 0.6rem 1rem;
+            }
+
+            .scrollbar-nav {
+                right: 10px;
+                width: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Resume</a></li>
+            <li class="nav-item active"><a href="projects.html">Projects</a></li>
+            <li class="nav-item"><a href="pong.html">???</a></li>
+        </ul>
+    </nav>
+
+    <div class="scrollbar-nav" id="scrollbarNav"></div>
+
+    <main id="mainContent">
+        <!-- Updated to link to undergrad-studios.html -->
+        <section class="project-section" onclick="openPage('undergrad-studios.html')">
+            <img src="images/Studio-2.png" class="project-image" alt="">
+            <div class="project-title">Undergrad Design Studios</div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- Updated to link to research-internships.html -->
+        <section class="project-section" onclick="openPage('research-internships.html')">
+            <img src="images/Internship Cover.png" class="project-image" alt="">
+            <div class="project-title">Research Internships</div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- Keep your existing other projects -->
+        <section class="project-section" onclick="openPDF('carpentry.html')">
+            <img src="images/Carpentry.png" class="project-image" alt="">
+            <div class="project-title">Panelized Passive Homebuilding</div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <section class="project-section" onclick="openPDF('sketches.html')">
+            <img src="images/Sketches.png" class="project-image" alt="">
+            <div class="project-title">Sketching Practice</div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <section class="project-section" onclick="openPDF('computer.html')">
+            <img src="images/Computer.png" class="project-image" alt="">
+            <div class="project-title">Personal Computer</div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <section class="project-section" onclick="openPDF('paintings.html')">
+            <img src="images/Painting.png" class="project-image" alt="">
+            <div class="project-title">Paintings</div>
+            <div class="scroll-indicator"></div>
+        </section>
+    </main>
+
+    <script>
+        const main = document.getElementById('mainContent');
+        const scrollbarNav = document.getElementById('scrollbarNav');
+        const sections = document.querySelectorAll('.project-section');
+
+        sections.forEach((_, i) => {
+            const item = document.createElement('div');
+            item.className = 'scrollbar-item';
+            item.addEventListener('click', () => {
+                sections[i].scrollIntoView({ behavior: 'smooth' });
+            });
+            scrollbarNav.appendChild(item);
+        });
+
+        const items = document.querySelectorAll('.scrollbar-item');
+
+        main.addEventListener('scroll', () => {
+            const scrollPosition = main.scrollTop;
+            sections.forEach((section, i) => {
+                const top = section.offsetTop - section.offsetHeight / 2;
+                const bottom = section.offsetTop + section.offsetHeight / 2;
+                if (scrollPosition >= top && scrollPosition < bottom) {
+                    items.forEach(item => item.classList.remove('active'));
+                    items[i].classList.add('active');
+                }
+            });
+        });
+
+        function openPage(url) {
+            window.location.href = url;
+        }
+
+        function openPDF(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

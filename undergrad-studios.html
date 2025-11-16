@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Undergrad Design Studios – Miles Weatherman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            z-index: 100;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+        }
+
+        main.gallery {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: calc(100vh - 60px);
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 0;
+            background: black;
+        }
+
+        .thumb {
+            position: relative;
+            border-right: 16px solid black;
+            border-bottom: 16px solid black;
+            overflow: hidden;
+            background: black;
+            cursor: pointer;
+        }
+
+            .thumb.col-last {
+                border-right: 0;
+            }
+
+            .thumb.row-last {
+                border-bottom: 0;
+            }
+
+            .thumb img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform-origin: center center;
+                transition: transform 380ms ease;
+            }
+
+            .thumb:hover img,
+            .thumb.touch-active img {
+                transform: scale(1.08);
+            }
+
+        .thumb-title {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            background: white;
+            color: black;
+            padding: 10px 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 5;
+            transition: none;
+            pointer-events: none;
+        }
+
+        .thumb:hover .thumb-title,
+        .thumb.touch-active .thumb-title {
+            background: black;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            main.gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(2, calc((100vh - 60px) / 2));
+                height: calc(100vh - 60px);
+            }
+
+            .thumb {
+                border-right: 12px solid black;
+                border-bottom: 12px solid black;
+            }
+
+                .thumb.col-last {
+                    border-right: 0;
+                }
+
+                .thumb.row-last {
+                    border-bottom: 0;
+                }
+
+            .thumb-title {
+                font-size: 1rem;
+                left: 14px;
+                bottom: 14px;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            main.gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, calc((100vh - 60px) / 4));
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .thumb {
+                border-right: 0;
+                border-bottom: 12px solid black;
+            }
+
+                .thumb.row-last {
+                    border-bottom: 0;
+                }
+
+            .thumb-title {
+                left: 12px;
+                bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Resume</a></li>
+            <li class="nav-item"><a href="projects.html">Projects</a></li>
+            <li class="nav-item"><a href="pong.html">???</a></li>
+        </ul>
+    </nav>
+
+    <main class="gallery">
+        <!-- row 1 -->
+        <div class="thumb" onclick="location.href='studio1.html'">
+            <img src="images/Studio-1.png" alt="Studio I">
+            <div class="thumb-title">Design Studio I</div>
+        </div>
+
+        <div class="thumb col-last" onclick="location.href='studio2.html'">
+            <img src="images/Studio-2.png" alt="Studio II">
+            <div class="thumb-title">Design Studio II</div>
+        </div>
+
+        <!-- row 2 -->
+        <div class="thumb row-last" onclick="location.href='studio3.html'">
+            <img src="images/Studio-3.png" alt="Studio III">
+            <div class="thumb-title">Design Studio III</div>
+        </div>
+
+        <div class="thumb col-last row-last" onclick="location.href='studio4.html'">
+            <img src="images/Studio-4.png" alt="Studio IV">
+            <div class="thumb-title">Design Studio IV</div>
+        </div>
+    </main>
+
+    <script>
+        // small touch support: add 'touch-active' class on touchstart so hover effects apply on mobile tap
+        document.querySelectorAll('.thumb').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                document.querySelectorAll('.thumb').forEach(t => t.classList.remove('touch-active'));
+                el.classList.add('touch-active');
+            }, { passive: true });
+        });
+
+        document.addEventListener('touchend', () => {
+            setTimeout(() => document.querySelectorAll('.thumb').forEach(t => t.classList.remove('touch-active')), 200);
+        });
+    </script>
+</body>
+</html>

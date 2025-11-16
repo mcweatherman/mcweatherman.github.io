@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Research Internships - Miles Weatherman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            background: black;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: black;
+            z-index: 100;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 6px 12px;
+        }
+
+        /* Gallery Grid */
+        main.gallery {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: calc(100vh - 60px);
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            gap: 0;
+            background: black;
+        }
+
+        .thumb {
+            position: relative;
+            border-right: 16px solid black;
+            border-bottom: 16px solid black;
+            overflow: hidden;
+            background: black;
+            cursor: pointer;
+        }
+
+            .thumb.col-last {
+                border-right: 0;
+            }
+
+            .thumb.row-last {
+                border-bottom: 0;
+            }
+
+            .thumb img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transform-origin: center center;
+                transition: transform 380ms ease;
+            }
+
+            .thumb:hover img,
+            .thumb.touch-active img {
+                transform: scale(1.08);
+            }
+
+        .thumb-title {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            background: white;
+            color: black;
+            padding: 10px 16px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            z-index: 5;
+            transition: none;
+            pointer-events: none;
+        }
+
+        .thumb:hover .thumb-title,
+        .thumb.touch-active .thumb-title {
+            background: black;
+            color: white;
+        }
+
+        /* Responsive Layouts */
+        @media (max-width: 900px) {
+            main.gallery {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(1, calc((100vh - 60px)));
+            }
+
+            .thumb {
+                border-right: 12px solid black;
+                border-bottom: 12px solid black;
+            }
+
+                .thumb.col-last {
+                    border-right: 0;
+                }
+
+            .thumb-title {
+                font-size: 1rem;
+                left: 14px;
+                bottom: 14px;
+                padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            main.gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(2, calc((100vh - 60px) / 2));
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .thumb {
+                border-right: 0;
+                border-bottom: 12px solid black;
+            }
+
+                .thumb.row-last {
+                    border-bottom: 0;
+                }
+
+            .thumb-title {
+                left: 12px;
+                bottom: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html">Resume</a></li>
+            <li class="nav-item"><a href="projects.html">Projects</a></li>
+            <li class="nav-item"><a href="pong.html">???</a></li>
+        </ul>
+    </nav>
+
+    <main class="gallery">
+        <!-- Internship 1 -->
+        <div class="thumb" onclick="location.href='internship1.html'">
+            <img src="images/Internship-1.png" alt="Research Internship I">
+            <div class="thumb-title">Research Internship I</div>
+        </div>
+
+        <!-- Internship 2 -->
+        <div class="thumb col-last" onclick="location.href='internship2.html'">
+            <img src="images/Internship-2.png" alt="Research Internship II">
+            <div class="thumb-title">Research Internship II</div>
+        </div>
+    </main>
+
+    <script>
+        // Touch hover support
+        document.querySelectorAll('.thumb').forEach(el => {
+            el.addEventListener('touchstart', () => {
+                document.querySelectorAll('.thumb').forEach(t => t.classList.remove('touch-active'));
+                el.classList.add('touch-active');
+            }, { passive: true });
+        });
+
+        document.addEventListener('touchend', () => {
+            setTimeout(() => document.querySelectorAll('.thumb').forEach(t => t.classList.remove('touch-active')), 200);
+        });
+    </script>
+</body>
+</html>
