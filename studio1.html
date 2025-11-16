@@ -11,10 +11,10 @@
             background: black;
             color: white;
             font-family: "Roboto", sans-serif;
-            overflow: hidden; /* Desktop keeps full screen PDF */
+            overflow: hidden;
         }
 
-        /* top nav */
+        /* top nav (same as others) */
         .top-nav {
             position: fixed;
             top: 0;
@@ -43,6 +43,7 @@
             padding: 6px 12px;
         }
 
+        /* PDF viewer */
         iframe {
             position: absolute;
             top: 60px;
@@ -50,20 +51,6 @@
             width: 100%;
             height: calc(100vh - 60px);
             border: none;
-        }
-
-        /* ---------------- MOBILE FIXES ONLY ---------------- */
-        @media (max-width: 768px) {
-
-            body {
-                overflow: auto !important; /* Allow page to scroll */
-            }
-
-            iframe {
-                width: 100vw !important;
-                height: calc(100vh - 60px) !important;
-                overflow: auto;
-            }
         }
     </style>
 </head>
@@ -77,8 +64,6 @@
     </nav>
 
     <!-- Embed PDF -->
-    <iframe src="pdfs/Studio-1.pdf#zoom=page-width"></iframe>
-
+    <iframe src="pdfs/Studio-1.pdf"></iframe>
 </body>
 </html>
-
