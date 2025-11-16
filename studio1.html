@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Undergrad Studio I - Miles Weatherman</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -11,10 +11,10 @@
             background: black;
             color: white;
             font-family: "Roboto", sans-serif;
-            overflow: hidden;
+            overflow: hidden; /* desktop full-screen PDF */
         }
 
-        /* top nav (same as others) */
+        /* top nav */
         .top-nav {
             position: fixed;
             top: 0;
@@ -52,6 +52,19 @@
             height: calc(100vh - 60px);
             border: none;
         }
+
+        /* ---------------- MOBILE FIXES ONLY ---------------- */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto !important; /* allow scrolling on mobile */
+            }
+
+            iframe {
+                width: 100vw !important;
+                height: auto !important;
+                min-height: calc(100vh - 60px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -64,6 +77,7 @@
     </nav>
 
     <!-- Embed PDF -->
-    <iframe src="pdfs/Studio-1.pdf"></iframe>
+    <iframe src="pdfs/Studio-1.pdf#toolbar=1&navpanes=1&scrollbar=1"></iframe>
+
 </body>
 </html>
