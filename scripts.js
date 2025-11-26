@@ -146,9 +146,12 @@ function animateOnScroll() {
     });
 }
 
-window.addEventListener("scroll", animateOnScroll);
 window.addEventListener("load", () => {
     typeName("Miles Weatherman").then(() => {
+
+        // Slide down the big black background panel
+        document.getElementById("resumePanel").classList.add("revealed");
+
         buildResume();
         animateOnScroll();
     });

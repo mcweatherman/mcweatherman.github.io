@@ -4,62 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects – Miles Weatherman</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Global stylesheet -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/MW-favicon-blackBackground.png" />
+
     <style>
         body {
             margin: 0;
             background-color: black;
             color: white;
-            font-family: "Roboto", sans-serif;
+            font-family: var(--body-font);
             overflow: hidden;
         }
 
-        /* Navigation bar */
-        .top-nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
-            z-index: 100;
-        }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            padding: 6px 12px;
-            transition: all 0.3s ease;
-            letter-spacing: 0.05em;
-        }
-
-        .nav-item.active a {
-            background-color: white;
-            color: black;
-        }
-
-        main {
+        /* Scroll container */
+        #mainContent {
             height: 100vh;
             width: 100%;
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
-            scrollbar-width: none;
+            scroll-behavior: smooth;
         }
 
-            main::-webkit-scrollbar {
+            #mainContent::-webkit-scrollbar {
                 display: none;
             }
 
@@ -77,8 +47,7 @@
 
         .project-image {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -100,6 +69,8 @@
             font-size: 1.8rem;
             font-weight: 700;
             letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-family: var(--title-font);
             z-index: 2;
         }
 
@@ -158,13 +129,14 @@
 
             .scrollbar-item.active {
                 background-color: black;
+                outline: 1px solid white;
             }
 
         @media (max-width: 600px) {
             .project-title {
-                font-size: 1.3rem;
-                bottom: 25px;
+                bottom: 90px;
                 left: 25px;
+                font-size: 1.3rem;
                 padding: 0.6rem 1rem;
             }
 
@@ -175,56 +147,67 @@
         }
     </style>
 </head>
+
 <body>
+
+    <!-- ===== THIRDS NAV ===== -->
     <nav class="top-nav">
-        <ul class="nav-menu">
-            <li class="nav-item"><a href="index.html">Resume</a></li>
-            <li class="nav-item active"><a href="projects.html">Projects</a></li>
-            <li class="nav-item"><a href="pong.html">???</a></li>
-        </ul>
+        <li class="nav-item"><a href="index.html">Resume</a></li>
+        <li class="nav-item active"><a href="projects.html">Projects</a></li>
+        <li class="nav-item">
+            <a href="pong.html" aria-label="Pong">
+                <img class="nav-mw" src="images/MW-favicon-blackBackground.png" alt="MW Icon">
+            </a>
+        </li>
     </nav>
 
+    <!-- Right-side scrollbar navigation -->
     <div class="scrollbar-nav" id="scrollbarNav"></div>
 
     <main id="mainContent">
-        <!-- Updated to link to undergrad-studios.html -->
+
+        <!-- Undergrad Studios (same tab) -->
         <section class="project-section" onclick="openPage('undergrad-studios.html')">
             <img src="images/Studio-2.png" class="project-image" alt="">
             <div class="project-title">Undergrad Design Studios</div>
             <div class="scroll-indicator"></div>
         </section>
 
-        <!-- Updated to link to research-internships.html -->
+        <!-- Research Internships (same tab) -->
         <section class="project-section" onclick="openPage('research-internships.html')">
             <img src="images/Internship Cover.PNG" class="project-image" alt="">
             <div class="project-title">Research Internships</div>
             <div class="scroll-indicator"></div>
         </section>
 
-        <!-- Keep your existing other projects -->
-        <section class="project-section" onclick="openPDF('carpentry.html')">
+        <!-- Carpentry (same tab) -->
+        <section class="project-section" onclick="openPage('carpentry.html')">
             <img src="images/Carpentry.png" class="project-image" alt="">
             <div class="project-title">Panelized Passive Homebuilding</div>
             <div class="scroll-indicator"></div>
         </section>
 
-        <section class="project-section" onclick="openPDF('sketches.html')">
+        <!-- Sketches (same tab) -->
+        <section class="project-section" onclick="openPage('sketches.html')">
             <img src="images/Sketches.png" class="project-image" alt="">
             <div class="project-title">Sketching Practice</div>
             <div class="scroll-indicator"></div>
         </section>
 
-        <section class="project-section" onclick="openPDF('computer.html')">
+        <!-- Computer (same tab) -->
+        <section class="project-section" onclick="openPage('computer.html')">
             <img src="images/Computer.png" class="project-image" alt="">
             <div class="project-title">Personal Computer</div>
             <div class="scroll-indicator"></div>
         </section>
 
-        <section class="project-section" onclick="openPDF('paintings.html')">
+        <!-- Paintings (same tab) -->
+        <section class="project-section" onclick="openPage('paintings.html')">
             <img src="images/Painting.png" class="project-image" alt="">
             <div class="project-title">Paintings</div>
             <div class="scroll-indicator"></div>
         </section>
+
     </main>
 
     <script>
@@ -258,10 +241,7 @@
         function openPage(url) {
             window.location.href = url;
         }
-
-        function openPDF(url) {
-            window.open(url, '_blank');
-        }
     </script>
+
 </body>
 </html>

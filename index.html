@@ -3,26 +3,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miles C. Weatherman – Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet" />
+    <title>Miles Weatherman – Resume</title>
+
+    <!-- Global stylesheet -->
     <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon (your handwriting, black background / white MW) -->
+    <link rel="icon" type="image/png" href="images/MW-favicon-blackBackground.png">
 </head>
+
 <body>
-    <!-- Navigation -->
+
+    <!-- =========================
+         UNIVERSAL THIRDS NAV BAR
+    ========================== -->
     <nav class="top-nav">
-        <ul class="nav-menu">
-            <li class="nav-item active"><a href="index.html">Resume</a></li>
-            <li class="nav-item"><a href="projects.html">Projects</a></li>
-            <li class="nav-item"><a href="pong.html">???</a></li>
-        </ul>
+        <li class="nav-item active">
+            <a href="index.html">Resume</a>
+        </li>
+
+        <li class="nav-item">
+            <a href="projects.html">Projects</a>
+        </li>
+
+        <li class="nav-item">
+            <a href="pong.html" aria-label="Pong">
+                <img class="nav-mw" src="images/MW-favicon-blackBackground.png" alt="MW Icon">
+            </a>
+        </li>
     </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <h1 class="typing name"></h1>
-        <div id="resumeContainer" class="resume-container"></div>
+    <!-- =========================
+         RESUME PAGE LAYOUT
+    ========================== -->
+
+    <main class="main-content resume-page">
+
+        <!-- White bar with your name -->
+        <div class="name-bar">
+            <h1 class="typing name"></h1>
+        </div>
+
+        <!-- Sliding black background panel -->
+        <div id="resumePanel" class="resume-panel">
+            <!-- Resume content inserted by scripts.js -->
+            <div id="resumeContainer" class="resume-container"></div>
+        </div>
+
     </main>
 
+    <!-- Resume builder + typing animation -->
     <script src="scripts.js"></script>
+
 </body>
 </html>

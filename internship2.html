@@ -4,66 +4,63 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Fall Internship – Miles Weatherman</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/MW-favicon-blackBackground.png" />
+
     <style>
         body {
             margin: 0;
             background: black;
             color: white;
-            font-family: "Roboto", sans-serif;
+            font-family: var(--body-font);
             overflow: hidden;
+            padding-bottom: env(safe-area-inset-bottom);
         }
 
-        /* top nav (same as others) */
-        .top-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: black;
-            z-index: 100;
-        }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 6px 12px;
-        }
-
-        /* PDF viewer */
+        /* Full-screen PDF viewer below fixed nav */
         iframe {
             position: absolute;
-            top: 60px;
+            top: var(--nav-height);
             left: 0;
             width: 100%;
-            height: calc(100vh - 60px);
+            /* Prevent clipping + extra spacing */
+            height: calc(100dvh - var(--nav-height));
+            min-height: calc(100svh - var(--nav-height));
             border: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+            }
+
+            iframe {
+                height: auto !important;
+                min-height: calc(100svh - var(--nav-height));
+            }
         }
     </style>
 </head>
+
 <body>
+
+    <!-- UNIVERSAL THIRDS NAV BAR -->
     <nav class="top-nav">
-        <ul class="nav-menu">
-            <li class="nav-item"><a href="index.html">Resume</a></li>
-            <li class="nav-item"><a href="projects.html">Projects</a></li>
-            <li class="nav-item"><a href="pong.html">???</a></li>
-        </ul>
+        <li class="nav-item"><a href="index.html">RESUME</a></li>
+        <li class="nav-item"><a href="projects.html">PROJECTS</a></li>
+        <li class="nav-item">
+            <a href="pong.html" aria-label="Pong">
+                <img class="nav-mw" src="images/MW-favicon-blackBackground.png" alt="MW Icon">
+            </a>
+        </li>
     </nav>
 
-    <!-- Embed PDF -->
-    <iframe src="pdfs/Internship-2.pdf"></iframe>
+    <!-- PDF Viewer -->
+    <iframe src="pdfs/Internship-2.pdf#toolbar=1&navpanes=1&scrollbar=1"></iframe>
+
 </body>
 </html>
