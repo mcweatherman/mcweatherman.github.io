@@ -19,13 +19,18 @@
     box-sizing: border-box;
 }
 
+/* Prevent sideways scroll on mobile */
+html, body {
+    overflow-x: hidden;
+}
+
 /* Body defaults */
 body {
     font-family: var(--body-font);
     color: var(--black);
     background: var(--white);
-    overflow-x: hidden;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ===============================
@@ -81,8 +86,9 @@ body {
    MAIN CONTENT SPACING
 =================================*/
 
+/* Extra 6px buffer prevents the name from kissing/clipping under the fixed nav */
 .main-content {
-    padding-top: var(--nav-height);
+    padding-top: calc(var(--nav-height) + 6px);
 }
 
 /* Mobile safe-area padding (iOS bottom) */
@@ -92,21 +98,18 @@ body {
     }
 }
 
-
 /* ===============================
    RESUME PAGE
 =================================*/
-
-.resume-page {
-    padding-top: var(--nav-height);
-}
 
 /* White top name bar */
 .name-bar {
     background: var(--white);
     color: var(--black);
     height: 140px;
+    /* Keep your original feel, but align with resume content */
     padding: 0 20px 10px;
+    padding-left: 8vw;
     display: flex;
     align-items: center;
     position: relative;
@@ -145,7 +148,6 @@ body {
     padding: 40px 8vw;
 }
 
-
 /* ===============================
    RESUME SECTION STYLES (blocks rendered by scripts.js)
 =================================*/
@@ -153,7 +155,7 @@ body {
 .resume-block {
     position: relative;
     width: 100%;
-    padding: 60px 0;
+    padding: 35px 0; /* you liked this tighter spacing */
     overflow: hidden;
     color: var(--white);
 }
@@ -187,7 +189,7 @@ body {
         opacity: 1;
     }
 
-/* Subheadings */
+/* Subheadings (NO underline here now) */
 .subheading {
     font-family: var(--title-font);
     text-transform: uppercase;
@@ -207,11 +209,7 @@ body {
     text-indent: -1em;
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
-/* Job header */
+/* Job header (underline stays ONLY here) */
 .job-line {
     display: flex;
     justify-content: space-between;
@@ -224,8 +222,8 @@ html, body {
 
 .at-symbol {
     display: inline-block;
-    margin: 0 0.6em; /* adjust this number to taste */
-    font-weight: 600; /* optional: match your job/company weight */
+    margin: 0 0.6em;
+    font-weight: 600;
 }
 
 .left-part {
@@ -249,7 +247,10 @@ html, body {
     margin-left: auto;
 }
 
-/* Mobile adjustments */
+/* ===============================
+   MOBILE ADJUSTMENTS
+=================================*/
+
 @media (max-width: 768px) {
 
     .typing.name {
@@ -261,8 +262,9 @@ html, body {
 
     .name-bar {
         overflow: hidden;
+        padding-left: 6vw;
+        padding-right: 6vw;
     }
-}
 
     .resume-container {
         padding: 30px 6vw;
@@ -278,7 +280,6 @@ html, body {
         margin-left: 0;
     }
 }
-
 
 /* ===============================
    MOBILE PDF VIEWER FIX (global)
