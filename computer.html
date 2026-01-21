@@ -63,7 +63,22 @@
     </nav>
 
     <!-- PDF viewer -->
-    <iframe src="pdfs/Computer.pdf#toolbar=1&navpanes=1&scrollbar=1"></iframe>
+    <iframe id="pdfFrame" data-pdf="pdfs/Computer.pdf"
+            src="pdfs/Computer.pdf#toolbar=1&navpanes=1&scrollbar=1"></iframe>
+
+
+    <script>
+        (function () {
+            const ua = navigator.userAgent || "";
+            const isIOS = /iPhone|iPad|iPod/i.test(ua);
+            const isAndroid = /Android/i.test(ua);
+
+            if (isIOS || isAndroid) {
+                const pdfUrl = document.getElementById("pdfFrame").getAttribute("data-pdf");
+                window.location.replace(pdfUrl);
+            }
+        })();
+    </script>
 
 </body>
 </html>
