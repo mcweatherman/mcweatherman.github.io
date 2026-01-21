@@ -81,7 +81,9 @@ body {
    MAIN CONTENT SPACING
 =================================*/
 
-
+.main-content {
+    padding-top: var(--nav-height);
+}
 
 /* Mobile safe-area padding (iOS bottom) */
 @media (max-width: 768px) {
@@ -96,7 +98,7 @@ body {
 =================================*/
 
 .resume-page {
-    padding-top: 0;
+    padding-top: var(--nav-height);
 }
 
 /* White top name bar */
@@ -106,7 +108,7 @@ body {
     height: 140px;
     padding: 0 20px 10px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     position: relative;
     z-index: 2;
 }
@@ -115,9 +117,10 @@ body {
 .typing.name {
     font-family: var(--title-font);
     font-weight: 700;
-    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    font-size: clamp(1.9rem, 7vw, 2.4rem);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 /* Sliding resume panel */
@@ -190,7 +193,7 @@ body {
     text-transform: uppercase;
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
     margin-bottom: 18px;
 }
 
@@ -210,7 +213,15 @@ body {
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.8em;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--white);
+}
+
+.at-symbol {
+    display: inline-block;
+    margin: 0 0.6em; /* adjust this number to taste */
+    font-weight: 600; /* optional: match your job/company weight */
 }
 
 .left-part {

@@ -3,12 +3,12 @@ const resumeLines = [
     {
         subheading: "WORK EXPERIENCE",
         body: [
-            "Carpentry and Window Assembly @  GO Logic, Jan 2025 - Present",
-            "- Putting building science principles into practice through building, rigging, and installing panelized projects",
-            "- Managed window assembly process and developed air sealing methods",
-            "- Experience with cadwork software and CNC cutsaw",
-            "- Worked with tabletop marketing",
-            "- Insulation embodied carbon analysis"
+            "Carpentry and Window Assembly @  GO Logic, Jan 2025 - Dec 2025",
+            "- Built, rigged, and installed panelized wall, roof, and floor assemblies",
+            "- Operated an automated CNC cut saw and used BIM and CAD models",
+            "- Managed window assembly process and developed sealing methods",
+            "- Participated with table top marketing and symposium events",
+            "- Put building science principles into action through passive prefab construction"
         ]
     },
     {
@@ -16,9 +16,8 @@ const resumeLines = [
         body: [
             "Building Science Intern @  Pacific Northwest National Laboratory, May 2024 - Dec 2024",
             "- Office of Energy Efficiency and Renewable Energy",
-            "- Made edits to the Building America Solution Center webpage",
-            "- Two internship sessions spent compiling, organizing, and categorizing data for the Zero Energy Ready Home Program",
-            "- Two research papers and symposium presentations"
+            "- Two internship sessions with corresponding research papers and symposia presentations about the assembly details and data of 300 + efficient homes",
+            "- Organized, categorized, and compiled data and files relating to the Building America Solution Center, Zero Energy Ready Home Program, and Housing Innovation Awards"
         ]
     },
     {
@@ -33,13 +32,20 @@ const resumeLines = [
         ]
     },
     {
-        subheading: "OTHER EXPERIENCE",
+        subheading: "SKILLS",
         body: [
-            "- Lifeguarding",
-            "- Food Service",
-            "- Computer Science",
-            "- Sketching, Drawing, and Painting",
-            "- Origami and Sculpting"
+            "- CAD and BIM Software; Revit, AutoCAD, cadwork, SketchUp, RSMeans, BEAM, Data Logging, Excel",
+            "- Experience with power tools and machinery",
+            "- Technical adaptability and troubleshooting",
+            "- Mathematics, physics, structures and elasticity",
+            "- Creative concept design"
+        ]
+    },
+    {
+        subheading: "VOLUNTEERING",
+        body: [
+            "- Watauga County Habitat for Humanity",
+            "- American Red Cross (Leaders Save Lives Scholarship)",
         ]
     },
     {
@@ -99,7 +105,7 @@ function buildResume() {
 
                     const atSymbol = document.createElement("span");
                     atSymbol.className = "at-symbol";
-                    atSymbol.textContent = " @ ";
+                    atSymbol.textContent = "@";
 
                     const company = document.createElement("span");
                     company.className = "company";
