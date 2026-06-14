@@ -3,6 +3,13 @@ const resumeLines = [
     {
         subheading: "WORK EXPERIENCE",
         body: [
+            "Sustainability Specialist @  Steven Winter Associates, Feb 2026 - Present",
+            "- Energy modeling, load sizing, and light power density analysis",
+            "- Green building certification assistance for programs such as Energy Star Multifamily New Construction, Efficient New Homes (formally Zero Energy Ready Home), Enterprise Green Communities, and Indoor AirPlus",
+            "- Blower door tests, duct leakage tests, and final verification documentation for previously mentioned programs",
+            "- Meeting with clients, contractors, and subcontractors for sustainable and efficient construction guidance",
+            ""
+            ""
             "Carpentry and Window Assembly @  GO Logic, Jan 2025 - Dec 2025",
             "- Built, rigged, and installed panelized wall, roof, and floor assemblies",
             "- Operated an automated CNC cut saw and used BIM and CAD models",
