@@ -51,6 +51,7 @@ const resumeLines = [
     {
         subheading: "VOLUNTEERING",
         body: [
+            "- Core Volunteer @ Habitat for Humanity of Coastal Fairfield County",
             "- Watauga County Habitat for Humanity",
             "- American Red Cross (Leaders Save Lives Scholarship)",
         ]
